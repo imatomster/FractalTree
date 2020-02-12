@@ -7,25 +7,24 @@ private boolean baBool = true;
 public void setup() 
 {   
 	size(640,480);
-	frameRate(10);    
+	frameRate(25);  
+	stroke(random(255), random(255), random(255));   
 } 
 public void draw() 
 {   
 	background(0);
-	stroke(#ffc1c1);   
 	line(320,480,320,380);   
 	drawBranches(320,380, 100, 3*Math.PI/2); 
 
-
 	if(baBool == true){
-		branchAngle*= 2;
+		branchAngle += 0.01;
 	}else if(baBool == false){
-		branchAngle/= 2;
+		branchAngle -= 0.01;
 	}
 
 	if(branchAngle > 1){
 		baBool = false;
-	}else if(branchAngle < 0){
+	}else if(branchAngle <= 0){
 		baBool = true;
 	}
 
